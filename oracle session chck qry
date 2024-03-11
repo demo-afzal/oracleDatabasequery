@@ -514,3 +514,14 @@ p.addr=s.paddr AND
 s.machine like (‘%&CLIENT_MACHINE%’) AND
 s.status=’INACTIVE’
 group by s.program;
+SQL> show parameter db_uni
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+db_unique_name                       string      PRDSVDBX7
+
+SQL> select inst_id,username,status,sql_id,count(*) from gv$session where sql_id='72pvmh61zgshv' group by inst_id,username,status,sql_id;
+
+   INST_ID USERNAME             STATUS   SQL_ID          COUNT(*)
+---------- -------------------- -------- ------------- ----------
+         2 PRDSVWDB_SVR         INACTIVE 72pvmh61zgshv        836
